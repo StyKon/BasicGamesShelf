@@ -14,6 +14,7 @@ namespace Basic_Games_Shelf.Models
         public int PlayTime { get; set; }
         [Required]
         public string Genre { get; set; }
+
         [Required]
         public string[] Platforms { get; set; }
     }
