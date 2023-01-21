@@ -35,12 +35,27 @@ namespace Basic_Games_Shelf.Services
         {
             var games = await _context.Games.FindAsync(id);
 
+            if (games == null)
+            {
+                return games;
+            }
+
             return games;
         }
 
         public async Task<IEnumerable<Games>> GetGames()
         {
             return await _context.Games.ToListAsync();
+        }
+
+        public Task<Games> GetTopPlayedGameByUsers(string genre, string platform)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Games> GetTopPlayedGamesByPlayTime(string genre, string platform)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Games> PostGames(Games games)

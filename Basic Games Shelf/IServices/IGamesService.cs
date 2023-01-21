@@ -10,5 +10,7 @@ namespace Basic_Games_Shelf.IServices
         Task<Games> PostGames(Games games);
         Task<Games> DeleteGames(int id);
         bool GamesExists(int id);
+        Task<Games> GetTopPlayedGamesByPlayTime(string genre,string platform);
+        Task<Games> GetTopPlayedGameByUsers(string genre, string platform);
     }
 }
