@@ -13,6 +13,14 @@ namespace Basic_Games_Shelf.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Games>()
+            .Property(e => e.Platforms)
+            .HasConversion(
+                v => string.Join(',', v),
+                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));
+        }
 
         public DbSet<Basic_Games_Shelf.Models.Games> Games { get; set; } = default!;
     }
